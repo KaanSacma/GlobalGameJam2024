@@ -23,7 +23,6 @@ public class MusicPlayer : MonoBehaviour
     private AudioSource _audioSource;
     private Image _spriteRenderer;
     private Slider _slider;
-    private float _currentTime = 0f;
     private TextMeshProUGUI _audioTitleText;
     private TextMeshProUGUI _audioArtistText;
     
@@ -37,11 +36,16 @@ public class MusicPlayer : MonoBehaviour
     
     public void PlayMusic()
     {
-        _audioSource.time = _currentTime;
         SetMusicInfo();
+        _audioSource.time = 0f;
         _audioSource.Play();
     }
     
+    public void StopMusic()
+    {
+        _audioSource.Stop();
+    }
+
     public void NextMusic()
     {
         if (musicIndex < musicList.Count - 1) {
@@ -51,9 +55,7 @@ public class MusicPlayer : MonoBehaviour
             //TODO: Close the app
         }
         _audioSource.Stop();
-        _currentTime = 0f;
-        SetMusicInfo();
-        _audioSource.Play();
+        PlayMusic();
     }
     
     void Start()
@@ -68,9 +70,17 @@ public class MusicPlayer : MonoBehaviour
     
     void Update()
     {
+        if (gameObject.transform.parent.gameObject.activeSelf && !_audioSource.isPlaying) {
+            PlayMusic();
+        } else if (!gameObject.transform.parent.gameObject.activeSelf) {
+            _audioSource.Stop();
+        }
+
         _slider.value = _audioSource.time / _audioSource.clip.length;
         if (_audioSource.time >= _audioSource.clip.length) {
-            // TODO: Restart from start
+            musicIndex = 0;
+            _audioSource.Stop();
+            SetMusicInfo();
         }
     }
 }
