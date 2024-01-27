@@ -32,7 +32,7 @@ public class Quest_One : MonoBehaviour
     
     void Update()
     {
-        if (stepOne && !stepOneObject.activeSelf) {
+        if (_questSystem.questIndex == 0 && stepOne && !stepOneObject.activeSelf) {
             CompleteQuest();
         }
     }

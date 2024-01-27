@@ -687,7 +687,7 @@ GameObject:
   - component: {fileID: 167891101}
   - component: {fileID: 167891100}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Text C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1847,7 +1847,7 @@ GameObject:
   - component: {fileID: 450689202}
   - component: {fileID: 450689201}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Text D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5481,7 +5481,6 @@ GameObject:
   - component: {fileID: 1148199419}
   - component: {fileID: 1148199418}
   - component: {fileID: 1148199417}
-  - component: {fileID: 1148199416}
   m_Layer: 5
   m_Name: Security App
   m_TagString: Untagged
@@ -5508,20 +5507,6 @@ RectTransform:
   m_AnchoredPosition: {x: 250, y: -100}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5000002, y: 0.49999988}
---- !u!114 &1148199416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1148199414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03d1af183d43b4f1f8a9afda18d55507, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  app: {fileID: 1528804148}
-  canLaunch: 1
 --- !u!114 &1148199417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5566,9 +5551,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1148199416}
-        m_TargetAssemblyTypeName: AppLauncher, Assembly-CSharp
-        m_MethodName: LaunchApp
+      - m_Target: {fileID: 1780502401}
+        m_TargetAssemblyTypeName: Quest_Two, Assembly-CSharp
+        m_MethodName: StepOneComplete
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6762,6 +6747,7 @@ GameObject:
   - component: {fileID: 1780502399}
   - component: {fileID: 1780502398}
   - component: {fileID: 1780502400}
+  - component: {fileID: 1780502401}
   m_Layer: 0
   m_Name: Quests
   m_TagString: Untagged
@@ -6830,6 +6816,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stepOne: 0
   stepOneObject: {fileID: 2145592582}
+--- !u!114 &1780502401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780502397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9de31613c4a499d9b1664d673b9394b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepOne: 0
+  stepOneObject: {fileID: 1102670518}
+  stepTwo: 0
+  stepTwoObject: {fileID: 1528804148}
+  stepThreeObject: {fileID: 896610340}
 --- !u!1 &1799936816
 GameObject:
   m_ObjectHideFlags: 0
@@ -7048,7 +7051,7 @@ GameObject:
   - component: {fileID: 1814009067}
   - component: {fileID: 1814009066}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Text B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7580,7 +7583,7 @@ GameObject:
   - component: {fileID: 2053200443}
   - component: {fileID: 2053200442}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Text A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
