@@ -41,6 +41,8 @@ public class QuizzSystem : MonoBehaviour
         if (quizzIndex < quizzList.Count - 1) {
             quizzIndex++;
             UpdateQuizz();
+        } else {
+            gameObject.SetActive(false);
         }
     }
     
@@ -125,6 +127,7 @@ public class QuizzSystem : MonoBehaviour
                 _correctAnswerButton.GetComponent<Image>().color = defaultColor;
                 _resetQuizz = false;
                 _resetQuizzTimer = 0f;
+                quizzIndex = 0;
                 UpdateQuizz();
             }
         }
