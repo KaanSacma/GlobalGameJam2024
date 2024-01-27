@@ -12,7 +12,7 @@ public class Quest_One : MonoBehaviour
 
     public void StepOneComplete()
     {
-        if (_questSystem.questIndex == 0) {
+        if (_questSystem.questIndex == 0 && !stepOne) {
             stepOneObject.SetActive(true);
             stepOne = true;
         }
