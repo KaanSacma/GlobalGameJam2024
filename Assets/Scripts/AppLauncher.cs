@@ -16,6 +16,11 @@ public class AppLauncher : MonoBehaviour
            }
         }
     }
+
+    public void LaunchOsApp()
+    {
+        app.SetActive(app.activeSelf ? false : true);
+    }
     
     void Update()
     {
