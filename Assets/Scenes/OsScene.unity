@@ -6666,9 +6666,23 @@ MonoBehaviour:
   questList:
   - name: Print important files
     IsCompleted: 0
-  - name: PP
+  - name: Go get authorization to use the printer
     IsCompleted: 0
-  questIndex: 0
+  - name: Go back to the printer
+    IsCompleted: 0
+  - name: Go help the Printer's Musical Friend
+    IsCompleted: 0
+  - name: Go back to the printer
+    IsCompleted: 0
+  - name: Go see Printer's chatty friend
+    IsCompleted: 0
+  - name: Go back to the printer
+    IsCompleted: 0
+  - name: Go buy some ink
+    IsCompleted: 0
+  - name: Go back to the printer
+    IsCompleted: 0
+  questIndex: 9
 --- !u!4 &1780502399
 Transform:
   m_ObjectHideFlags: 0
