@@ -5,7 +5,7 @@ using UnityEngine;
 
 [Serializable]
 public class Quest {
-    public string Name;
+    public string name;
     public bool IsCompleted;
 }
 

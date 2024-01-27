@@ -11,12 +11,12 @@ public class InfoQuest : MonoBehaviour
     
     void Update()
     {
-        _questName.text = questSystem.questList[questSystem.questIndex].Name;
+        _questName.text = questSystem.questList[questSystem.questIndex].name;
     }
 
     private void Start()
     {
         _questName = GetComponent<TextMeshProUGUI>();
-        _questName.text = questSystem.questList[questSystem.questIndex].Name;
+        _questName.text = questSystem.questList[questSystem.questIndex].name;
     }
 }

@@ -72,6 +72,11 @@ public class MusicPlayer : MonoBehaviour
     
     void Update()
     {
+        if (_audioSource.time >= _audioSource.clip.length) {
+            musicIndex = 0;
+            _audioSource.Stop();
+            SetMusicInfo();
+        }
         if (gameObject.transform.parent.gameObject.activeSelf && !_audioSource.isPlaying) {
             PlayMusic();
         } else if (!gameObject.transform.parent.gameObject.activeSelf) {
@@ -79,10 +84,5 @@ public class MusicPlayer : MonoBehaviour
         }
 
         _slider.value = _audioSource.time / _audioSource.clip.length;
-        if (_audioSource.time >= _audioSource.clip.length) {
-            musicIndex = 0;
-            _audioSource.Stop();
-            SetMusicInfo();
-        }
     }
 }

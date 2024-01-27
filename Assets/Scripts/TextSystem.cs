@@ -25,11 +25,17 @@ public class TextSystem : MonoBehaviour
             _stringIndex = 0;
             _timer = 0f;
             _acceleration = 1;
+        } else {
+            gameObject.transform.parent.gameObject.SetActive(false);
         }
     }
     
     public void Accelerate()
     {
+        if (textToDisplay.Length >= textList[_index].Length) {
+            NextText();
+            return;
+        }
         _acceleration = 2;
         _timer = timeToWait;
     }
@@ -41,6 +47,8 @@ public class TextSystem : MonoBehaviour
 
     void Update()
     {
+        if (!gameObject.activeSelf)
+            return;
         _timer += Time.deltaTime;
         
         if (textToDisplay.Length < textList[_index].Length && _timer > timeToWait) {
