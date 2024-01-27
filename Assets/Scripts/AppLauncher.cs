@@ -20,7 +20,7 @@ public class AppLauncher : MonoBehaviour
         }
     }
 
-    public void LaunchOsApp()
+    public void ForceLaunch()
     {
         app.SetActive(app.activeSelf ? false : true);
     }

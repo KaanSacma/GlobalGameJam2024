@@ -11,18 +11,19 @@ public class Quest {
 
 public class QuestSystem : MonoBehaviour
 {
-    public List<Quest> QuestList;
-    public int QuestIndex = 0;
+    public List<Quest> questList;
+    public int questIndex = 0;
     
     public void NextQuest()
     {
-        if (QuestIndex < QuestList.Count - 1) {
-            QuestIndex++;
+        if (questIndex < questList.Count - 1) {
+            CompleteQuest();
+            questIndex++;
         }
     }
     
     public void CompleteQuest()
     {
-        QuestList[QuestIndex].IsCompleted = true;
+        questList[questIndex].IsCompleted = true;
     }
 }
