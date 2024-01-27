@@ -10,6 +10,7 @@ public class TextSystem : MonoBehaviour
     public int textSpeed = 1;
     public String textToDisplay;
     public float timeToWait = 0.1f;
+    public int maxAcceleration = 10;
     
     private TextMeshProUGUI _textMesh;
     private int _index = 0;
@@ -36,7 +37,7 @@ public class TextSystem : MonoBehaviour
             NextText();
             return;
         }
-        _acceleration = 2;
+        _acceleration = maxAcceleration;
         _timer = timeToWait;
     }
 
@@ -57,7 +58,7 @@ public class TextSystem : MonoBehaviour
                 _stringIndex = textList[_index].Length;
             }
             textToDisplay = textList[_index].Substring(0, _stringIndex);
-            if (_acceleration == 2) {
+            if (_acceleration == maxAcceleration) {
                 _acceleration = 1;
             }
             _timer = 0f;
