@@ -52,7 +52,9 @@ public class MusicPlayer : MonoBehaviour
             musicIndex++;
         } else {
             musicIndex = 0;
-            //TODO: Close the app
+            StopMusic();
+            gameObject.transform.parent.gameObject.SetActive(false);
+            return;
         }
         _audioSource.Stop();
         PlayMusic();
