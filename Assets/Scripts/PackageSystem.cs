@@ -19,6 +19,7 @@ public class PackageSystem : MonoBehaviour
     public int numberOfPackages = 5;
     public int numberOfErrors = 3;
     public List<Sprite> packageImages;
+    public List<Sprite> correctImages;
     public GameObject package;
     public int packageOffset = 1200;
     public float packageSpeed;
@@ -35,11 +36,6 @@ public class PackageSystem : MonoBehaviour
         return (Sticker) UnityEngine.Random.Range(0, Enum.GetNames(typeof(Sticker)).Length - 1);
     }
     
-    void MovePackage()
-    {
-        
-    }
-
     void GeneratePackage()
     {
         stickerToFind = RandomSticker();
@@ -53,6 +49,7 @@ public class PackageSystem : MonoBehaviour
         if (!_canInteract) return;
         if ((Sticker) sticker == stickerToFind) {
             _round++;
+            package.GetComponent<Image>().sprite = correctImages[(int) stickerToFind];
             if (_round >= numberOfPackages) {
                 _round = 0;
                 _errors = 0;
