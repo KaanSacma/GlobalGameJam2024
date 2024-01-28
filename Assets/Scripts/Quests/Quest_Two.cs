@@ -10,6 +10,9 @@ public class Quest_Two : MonoBehaviour
     public bool stepTwo = false;
     public GameObject stepTwoObject;
     public GameObject stepThreeObject;
+    public AudioClip clickGood;
+    public AudioClip clickBad;
+    private AudioSource Source;
     
     private QuestSystem _questSystem;
 
@@ -19,6 +22,12 @@ public class Quest_Two : MonoBehaviour
         if (_questSystem.questIndex == 1 && !stepOne) {
             stepOneObject.SetActive(true);
             stepOne = true;
+            
+            Source.clip = clickGood;
+            Source.Play();
+        } else {
+            Source.clip = clickBad;
+            Source.Play();
         }
     }
     
@@ -39,6 +48,7 @@ public class Quest_Two : MonoBehaviour
     
     void Start()
     {
+        Source = gameObject.GetComponent<AudioSource>();
         _questSystem = gameObject.GetComponent<QuestSystem>();
     }
     

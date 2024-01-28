@@ -7,6 +7,9 @@ public class Quest_One : MonoBehaviour
 {
     public bool stepOne = false;
     public GameObject stepOneObject;
+    public AudioClip clickGood;
+    public AudioClip clickBad;
+    private AudioSource Source;
     
     private QuestSystem _questSystem;
 
@@ -15,6 +18,12 @@ public class Quest_One : MonoBehaviour
         if (_questSystem.questIndex == 0 && !stepOne) {
             stepOneObject.SetActive(true);
             stepOne = true;
+
+            Source.clip = clickGood;
+            Source.Play();
+        } else {
+            Source.clip = clickBad;
+            Source.Play();
         }
     }
     
@@ -27,6 +36,7 @@ public class Quest_One : MonoBehaviour
     
     void Start()
     {
+        Source = gameObject.GetComponent<AudioSource>();
         _questSystem = gameObject.GetComponent<QuestSystem>();
     }
     
