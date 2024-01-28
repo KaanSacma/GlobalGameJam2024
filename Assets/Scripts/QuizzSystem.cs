@@ -17,6 +17,7 @@ public class Quizz {
 
 public class QuizzSystem : MonoBehaviour
 {
+    public GameObject questTwo;
     public List<Quizz> quizzList;
     public int quizzIndex = 0;
     
@@ -33,6 +34,7 @@ public class QuizzSystem : MonoBehaviour
     
     public Color defaultColor;
     
+
     private GameObject _correctAnswerButton;
     private bool _resetQuizz = false;
     private float _resetQuizzTimer = 0f;
@@ -45,7 +47,7 @@ public class QuizzSystem : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-    
+     
     public void UpdateQuizz()
     {
         questionText.text = quizzList[quizzIndex].question;

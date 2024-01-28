@@ -33,7 +33,8 @@ public class Quest_Two : MonoBehaviour
     
     public void StepTwoComplete()
     {
-        if (_questSystem.questIndex == 1 && !stepTwo) {
+        if (_questSystem.questIndex == 1 && stepTwo) {
+            
             stepThreeObject.SetActive(true);
             stepTwo = true;
         }
