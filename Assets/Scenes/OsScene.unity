@@ -419,8 +419,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textList:
-  - Wow! You did a great job, it's time to PRINT.
-  - Let me handle the printing the file, don't worry I got you.
+  - You're back! And got the cartridge !! I didn't think you'd be able to make it
+    back with it.
+  - Ah, Avarizone, the realm of not-so-generous gestures. Made you work for it, huh?
+    Well, I suppose getting that cartridge was like a hard-earned page in the printing
+    manual of life. At least we've got it now, ready to bring forth a new chapter.
+    Let's load it up!
   textSpeed: 1
   textToDisplay: 
   timeToWait: 0.05
@@ -7074,6 +7078,7 @@ RectTransform:
   - {fileID: 1776030391}
   - {fileID: 1710510547}
   - {fileID: 140210509}
+  - {fileID: 897636900}
   m_Father: {fileID: 522282878}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -7253,6 +7258,81 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &897636899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 897636900}
+  - component: {fileID: 897636902}
+  - component: {fileID: 897636901}
+  m_Layer: 5
+  m_Name: end_image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &897636900
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897636899}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 892195970}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &897636901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897636899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: ce5ed70c8edd448279e2078ad47b55c1, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &897636902
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897636899}
+  m_CullTransparentMesh: 1
 --- !u!1 &907405958
 GameObject:
   m_ObjectHideFlags: 0
@@ -11235,7 +11315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc11ef804aeb3478daa1a9c2509c5d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfPackages: 5
+  numberOfPackages: 20
   numberOfErrors: 3
   packageImages:
   - {fileID: 21300000, guid: 936fa6f91a0fe49dabfb6d8bab1f952e, type: 3}
@@ -12367,6 +12447,8 @@ MonoBehaviour:
   stepThreeObject: {fileID: 1741850223}
   stepFourObject: {fileID: 977327679}
   stepFiveObject: {fileID: 140210508}
+  lastObject: {fileID: 897636899}
+  lastSound: {fileID: 8300000, guid: dc6c1d52801284d6cb47a3503a0d4f6b, type: 3}
   clickGood: {fileID: 8300000, guid: baa64091c1d052e4fa5b452be6647473, type: 3}
   clickBad: {fileID: 8300000, guid: 83022022ae8a80240a87c896203604c1, type: 3}
 --- !u!114 &1780502401

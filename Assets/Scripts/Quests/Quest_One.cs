@@ -15,6 +15,8 @@ public class Quest_One : MonoBehaviour
     public GameObject stepThreeObject;
     public GameObject stepFourObject;
     public GameObject stepFiveObject;
+    public GameObject lastObject;
+    public AudioClip lastSound;
     public AudioClip clickGood;
     public AudioClip clickBad;
     private AudioSource Source;
@@ -59,7 +61,13 @@ public class Quest_One : MonoBehaviour
             case 2: _questSystem.NextQuest(); break;
             case 4: _questSystem.NextQuest(); break;
             case 6: _questSystem.NextQuest(); break;
-            case 8: _questSystem.NextQuest(); break;
+            case 8:
+            {
+                Source.clip = lastSound;
+                Source.loop = true;
+                Source.Play();
+                lastObject.SetActive(true);
+            } break;
         }
     }
     
@@ -81,6 +89,11 @@ public class Quest_One : MonoBehaviour
             CompleteQuest();
         } else if (_questSystem.questIndex == 8 && stepFive && !stepFiveObject.activeSelf) {
             CompleteQuest();
+        }
+        
+        if (lastObject.activeSelf && Input.GetKeyDown(KeyCode.Mouse1)) {
+            Source.Stop();
+            Application.Quit();
         }
     }
 }
