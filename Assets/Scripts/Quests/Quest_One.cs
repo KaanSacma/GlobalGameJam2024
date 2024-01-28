@@ -7,8 +7,10 @@ public class Quest_One : MonoBehaviour
 {
     public bool stepOne = false;
     public bool stepTwo = false;
+    public bool stepThree = false;
     public GameObject stepOneObject;
     public GameObject stepTwoObject;
+    public GameObject stepThreeObject;
     public AudioClip clickGood;
     public AudioClip clickBad;
     private AudioSource Source;
@@ -35,6 +37,11 @@ public class Quest_One : MonoBehaviour
             stepTwoObject.SetActive(true);
             stepTwo = true;
         }
+        else if (_questSystem.questIndex == 4 && !stepThree)
+        {
+            stepThreeObject.SetActive(true);
+            stepThree = true;
+        }
     }
     
     public void CompleteQuest()
@@ -43,6 +50,7 @@ public class Quest_One : MonoBehaviour
         {
             case 0: _questSystem.NextQuest(); break;
             case 2: _questSystem.NextQuest(); break;
+            case 4: _questSystem.NextQuest(); break;
         }
     }
     
@@ -56,9 +64,9 @@ public class Quest_One : MonoBehaviour
     {
         if (_questSystem.questIndex == 0 && stepOne && !stepOneObject.activeSelf) {
             CompleteQuest();
-        }
-        else if (_questSystem.questIndex == 2 && stepTwo && !stepTwoObject.activeSelf)
-        {
+        } else if (_questSystem.questIndex == 2 && stepTwo && !stepTwoObject.activeSelf) {
+            CompleteQuest();
+        } else if (_questSystem.questIndex == 4 && stepThree && !stepThreeObject.activeSelf) {
             CompleteQuest();
         }
     }

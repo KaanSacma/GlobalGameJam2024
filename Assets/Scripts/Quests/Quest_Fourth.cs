@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Quest_Three : MonoBehaviour
+public class Quest_Fourth : MonoBehaviour
 {
     public bool stepOne = false;
     public GameObject stepOneObject;
@@ -15,11 +14,10 @@ public class Quest_Three : MonoBehaviour
     private AudioSource Source;
     
     private QuestSystem _questSystem;
-
     
     public void StepOneComplete()
     {
-        if (_questSystem.questIndex == 3 && !stepOne) {
+        if (_questSystem.questIndex == 5 && !stepOne) {
             stepOneObject.SetActive(true);
             stepOne = true;
             
@@ -33,7 +31,7 @@ public class Quest_Three : MonoBehaviour
     
     public void StepTwoComplete()
     {
-        if (_questSystem.questIndex == 3 && stepTwo) {
+        if (_questSystem.questIndex == 5 && stepTwo) {
             stepThreeObject.SetActive(true);
             stepTwo = true;
         }
@@ -41,7 +39,7 @@ public class Quest_Three : MonoBehaviour
     
     public void CompleteQuest()
     {
-        if (_questSystem.questIndex == 3) {
+        if (_questSystem.questIndex == 5) {
             _questSystem.NextQuest();
         }
     }
@@ -54,13 +52,13 @@ public class Quest_Three : MonoBehaviour
     
     void Update()
     {
-       if (_questSystem.questIndex == 3 && stepOne && !stepOneObject.activeSelf && !stepTwo && !stepTwoObject.activeSelf) {
-           stepTwoObject.SetActive(true);
-           stepTwo = true;
-       }
-       if (_questSystem.questIndex == 3 && stepOne && !stepOneObject.activeSelf && stepTwo && !stepTwoObject.activeSelf) {
-           StepTwoComplete();
-           CompleteQuest();
-       }
+        if (_questSystem.questIndex == 5 && stepOne && !stepOneObject.activeSelf && !stepTwo && !stepTwoObject.activeSelf) {
+            stepTwoObject.SetActive(true);
+            stepTwo = true;
+        }
+        if (_questSystem.questIndex == 5 && stepOne && !stepOneObject.activeSelf && stepTwo && !stepTwoObject.activeSelf) {
+            StepTwoComplete();
+            CompleteQuest();
+        }
     }
 }
