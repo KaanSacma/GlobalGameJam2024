@@ -1556,7 +1556,6 @@ GameObject:
   - component: {fileID: 271449058}
   - component: {fileID: 271449057}
   - component: {fileID: 271449056}
-  - component: {fileID: 271449055}
   m_Layer: 5
   m_Name: Music? App
   m_TagString: Untagged
@@ -1583,20 +1582,6 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: -100}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5000002, y: 0.49999988}
---- !u!114 &271449055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 271449053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03d1af183d43b4f1f8a9afda18d55507, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  app: {fileID: 662775956}
-  canLaunch: 1
 --- !u!114 &271449056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1641,9 +1626,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 271449055}
-        m_TargetAssemblyTypeName: AppLauncher, Assembly-CSharp
-        m_MethodName: LaunchApp
+      - m_Target: {fileID: 1780502403}
+        m_TargetAssemblyTypeName: Quest_Three, Assembly-CSharp
+        m_MethodName: StepOneComplete
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4555,6 +4540,7 @@ GameObject:
   - component: {fileID: 845359179}
   - component: {fileID: 845359178}
   - component: {fileID: 845359181}
+  - component: {fileID: 845359182}
   m_Layer: 5
   m_Name: Add To Playlist Button
   m_TagString: Untagged
@@ -4690,8 +4676,104 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicPlayer: {fileID: 1113159}
   choicePlayist: {fileID: 1799936818}
-  goodClick: {fileID: 0}
-  badClick: {fileID: 0}
+  goodClick: {fileID: 8300000, guid: baa64091c1d052e4fa5b452be6647473, type: 3}
+  badClick: {fileID: 8300000, guid: 83022022ae8a80240a87c896203604c1, type: 3}
+--- !u!82 &845359182
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845359176}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &866918099
 GameObject:
   m_ObjectHideFlags: 0
@@ -8931,6 +9013,7 @@ GameObject:
   - component: {fileID: 1780502400}
   - component: {fileID: 1780502401}
   - component: {fileID: 1780502402}
+  - component: {fileID: 1780502403}
   m_Layer: 0
   m_Name: Quests
   m_TagString: Untagged
@@ -9000,7 +9083,7 @@ MonoBehaviour:
   stepOne: 0
   stepTwo: 0
   stepOneObject: {fileID: 2145592582}
-  stepTwoObject: {fileID: 0}
+  stepTwoObject: {fileID: 533873006}
   clickGood: {fileID: 8300000, guid: 83022022ae8a80240a87c896203604c1, type: 3}
   clickBad: {fileID: 8300000, guid: 83022022ae8a80240a87c896203604c1, type: 3}
 --- !u!114 &1780502401
@@ -9118,6 +9201,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1780502403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780502397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c0c1e454590bc4b993e0f4cfc1a123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepOne: 0
+  stepOneObject: {fileID: 1688987122}
+  stepTwo: 0
+  stepTwoObject: {fileID: 662775956}
+  stepThreeObject: {fileID: 1293118689}
+  clickGood: {fileID: 8300000, guid: baa64091c1d052e4fa5b452be6647473, type: 3}
+  clickBad: {fileID: 8300000, guid: 83022022ae8a80240a87c896203604c1, type: 3}
 --- !u!1 &1799936816
 GameObject:
   m_ObjectHideFlags: 0
