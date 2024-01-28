@@ -15,15 +15,18 @@ public class Quest_One : MonoBehaviour
 
     public void StepOneComplete()
     {
-        if (_questSystem.questIndex == 0 && !stepOne) {
-            stepOneObject.SetActive(true);
-            stepOne = true;
-
+        if (_questSystem.questIndex == 0 || _questSystem.questIndex == 2 || _questSystem.questIndex == 4)
+        {
             Source.clip = clickGood;
             Source.Play();
         } else {
             Source.clip = clickBad;
             Source.Play();
+        }
+
+        if (_questSystem.questIndex == 0 && !stepOne) {
+            stepOneObject.SetActive(true);
+            stepOne = true;
         }
     }
     

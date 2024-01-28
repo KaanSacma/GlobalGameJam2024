@@ -33,8 +33,11 @@ public class QuizzSystem : MonoBehaviour
     public GameObject answerDButton;
     
     public Color defaultColor;
-    
 
+    public AudioClip goodClick;
+    public AudioClip badClick;
+
+    private AudioSource _source;
     private GameObject _correctAnswerButton;
     private bool _resetQuizz = false;
     private float _resetQuizzTimer = 0f;
@@ -50,6 +53,7 @@ public class QuizzSystem : MonoBehaviour
      
     public void UpdateQuizz()
     {
+        EnableButtons();
         questionText.text = quizzList[quizzIndex].question;
         answerAText.text = quizzList[quizzIndex].answer_a;
         answerBText.text = quizzList[quizzIndex].answer_b;
@@ -60,8 +64,13 @@ public class QuizzSystem : MonoBehaviour
     public void CheckAnswerA()
     {
         if (answerAText.text == quizzList[quizzIndex].correct_answer) {
+            _source.clip = goodClick;
+            _source.Play();
             NextQuizz();
         } else {
+            DisableButtons();
+            _source.clip = badClick;
+            _source.Play();
             _resetQuizz = true;
             _correctAnswerButton = GetCorrectAnswerButton();
             _correctAnswerButton.GetComponent<Image>().color = Color.green;
@@ -71,8 +80,13 @@ public class QuizzSystem : MonoBehaviour
     public void CheckAnswerB()
     {
         if (answerBText.text == quizzList[quizzIndex].correct_answer) {
+            _source.clip = goodClick;
+            _source.Play();
             NextQuizz();
         } else {
+            DisableButtons();
+            _source.clip = badClick;
+            _source.Play();
             _resetQuizz = true;
             _correctAnswerButton = GetCorrectAnswerButton();
             _correctAnswerButton.GetComponent<Image>().color = Color.green;
@@ -82,8 +96,13 @@ public class QuizzSystem : MonoBehaviour
     public void CheckAnswerC()
     {
         if (answerCText.text == quizzList[quizzIndex].correct_answer) {
+            _source.clip = goodClick;
+            _source.Play();
             NextQuizz();
         } else {
+            DisableButtons();
+            _source.clip = badClick;
+            _source.Play();
             _resetQuizz = true;
             _correctAnswerButton = GetCorrectAnswerButton();
             _correctAnswerButton.GetComponent<Image>().color = Color.green;
@@ -93,8 +112,13 @@ public class QuizzSystem : MonoBehaviour
     public void CheckAnswerD()
     {
         if (answerDText.text == quizzList[quizzIndex].correct_answer) {
+            _source.clip = goodClick;
+            _source.Play();
             NextQuizz();
         } else {
+            DisableButtons();
+            _source.clip = badClick;
+            _source.Play();
             _resetQuizz = true;
             _correctAnswerButton = GetCorrectAnswerButton();
             _correctAnswerButton.GetComponent<Image>().color = Color.green;
@@ -118,6 +142,7 @@ public class QuizzSystem : MonoBehaviour
     
     void Start()
     {
+        _source = gameObject.GetComponent<AudioSource>();
         UpdateQuizz();
     }
     
@@ -133,5 +158,21 @@ public class QuizzSystem : MonoBehaviour
                 UpdateQuizz();
             }
         }
+    }
+
+    private void DisableButtons()
+    {
+        answerAButton.GetComponent<Button>().interactable = false;
+        answerBButton.GetComponent<Button>().interactable = false;
+        answerCButton.GetComponent<Button>().interactable = false;
+        answerDButton.GetComponent<Button>().interactable = false;
+    }
+
+    private void EnableButtons()
+    {
+        answerAButton.GetComponent<Button>().interactable = true;
+        answerBButton.GetComponent<Button>().interactable = true;
+        answerCButton.GetComponent<Button>().interactable = true;
+        answerDButton.GetComponent<Button>().interactable = true;
     }
 }
