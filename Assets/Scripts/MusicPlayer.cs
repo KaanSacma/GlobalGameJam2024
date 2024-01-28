@@ -59,7 +59,22 @@ public class MusicPlayer : MonoBehaviour
         _audioSource.Stop();
         PlayMusic();
     }
-    
+
+    public void ShuffleList()
+    {
+        int n = musicList.Count;
+        System.Random rng = new System.Random();
+
+        while (n > 1)
+        {
+            n--;
+            int k = rng.Next(n + 1);
+            Music value = musicList[k];
+            musicList[k] = musicList[n];
+            musicList[n] = value;
+        }
+    }
+
     void Start()
     {
         _spriteRenderer = GameObject.Find("Image Music").GetComponent<Image>();
@@ -67,6 +82,9 @@ public class MusicPlayer : MonoBehaviour
        _audioArtistText = GameObject.Find("Artist Music").GetComponent<TextMeshProUGUI>();
        _slider = GameObject.Find("Slider Music").GetComponent<Slider>();
        _audioSource = gameObject.GetComponent<AudioSource>();
+
+        ShuffleList();
+
        SetMusicInfo();
     }
     

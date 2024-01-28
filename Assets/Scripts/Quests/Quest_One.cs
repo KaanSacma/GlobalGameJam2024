@@ -6,7 +6,9 @@ using UnityEngine;
 public class Quest_One : MonoBehaviour
 {
     public bool stepOne = false;
+    public bool stepTwo = false;
     public GameObject stepOneObject;
+    public GameObject stepTwoObject;
     public AudioClip clickGood;
     public AudioClip clickBad;
     private AudioSource Source;
@@ -15,6 +17,7 @@ public class Quest_One : MonoBehaviour
 
     public void StepOneComplete()
     {
+        Debug.Log(_questSystem.questIndex);
         if (_questSystem.questIndex == 0 || _questSystem.questIndex == 2 || _questSystem.questIndex == 4)
         {
             Source.clip = clickGood;
@@ -27,13 +30,19 @@ public class Quest_One : MonoBehaviour
         if (_questSystem.questIndex == 0 && !stepOne) {
             stepOneObject.SetActive(true);
             stepOne = true;
+        } else if (_questSystem.questIndex == 2 && !stepTwo)
+        {
+            stepTwoObject.SetActive(true);
+            stepTwo = true;
         }
     }
     
     public void CompleteQuest()
     {
-        if (_questSystem.questIndex == 0) {
-            _questSystem.NextQuest();
+        switch (_questSystem.questIndex)
+        {
+            case 0: _questSystem.NextQuest(); break;
+            case 2: _questSystem.NextQuest(); break;
         }
     }
     
@@ -46,6 +55,10 @@ public class Quest_One : MonoBehaviour
     void Update()
     {
         if (_questSystem.questIndex == 0 && stepOne && !stepOneObject.activeSelf) {
+            CompleteQuest();
+        }
+        else if (_questSystem.questIndex == 2 && stepTwo && !stepTwoObject.activeSelf)
+        {
             CompleteQuest();
         }
     }
