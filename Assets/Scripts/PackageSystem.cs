@@ -24,12 +24,15 @@ public class PackageSystem : MonoBehaviour
     public int packageOffset = 1200;
     public float packageSpeed;
     public Sticker stickerToFind;
+    public AudioClip clickGood;
+    public AudioClip clickBad;
     
     private Vector3 _packageStart;
     private float _packageXEnd;
     private bool _canInteract = false;
     private int _round = 0;
     private int _errors = 0;
+    private AudioSource _audioSource;
     
     Sticker RandomSticker()
     {
@@ -50,6 +53,8 @@ public class PackageSystem : MonoBehaviour
         if ((Sticker) sticker == stickerToFind) {
             _round++;
             package.GetComponent<Image>().sprite = correctImages[(int) stickerToFind];
+            _audioSource.clip = clickGood;
+            _audioSource.Play();
             if (_round >= numberOfPackages) {
                 _round = 0;
                 _errors = 0;
@@ -57,6 +62,8 @@ public class PackageSystem : MonoBehaviour
             }
         } else {
             _errors++;
+            _audioSource.clip = clickBad;
+            _audioSource.Play();
             if (_errors >= numberOfErrors) {
                 _round = 0;
                 _errors = 0;
@@ -69,6 +76,7 @@ public class PackageSystem : MonoBehaviour
     {
         _packageStart = package.transform.position;
         _packageXEnd = _packageStart.x + packageOffset;
+        _audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     private void Update()
