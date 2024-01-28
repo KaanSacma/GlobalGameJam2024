@@ -25,7 +25,7 @@ public class Quest_Two : MonoBehaviour
             
             Source.clip = clickGood;
             Source.Play();
-        } else {
+        } else if (_questSystem.questIndex == 1) {
             Source.clip = clickBad;
             Source.Play();
         }
