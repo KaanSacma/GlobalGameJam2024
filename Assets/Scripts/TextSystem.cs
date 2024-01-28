@@ -11,16 +11,19 @@ public class TextSystem : MonoBehaviour
     public String textToDisplay;
     public float timeToWait = 0.1f;
     public int maxAcceleration = 10;
+    public AudioClip sound;
     
     private TextMeshProUGUI _textMesh;
     private int _index = 0;
     private int _stringIndex = 0;
     private float _timer = 0f;
     private int _acceleration = 1;
+    private AudioSource _audioSource;
     
     public void NextText()
     {
         if (_index < textList.Count - 1) {
+            _audioSource.Play();
             _index++;
             textToDisplay = "";
             _stringIndex = 0;
@@ -44,6 +47,8 @@ public class TextSystem : MonoBehaviour
     private void Start()
     {
         _textMesh = gameObject.GetComponent<TextMeshProUGUI>();
+        _audioSource = gameObject.GetComponent<AudioSource>();
+        _audioSource.clip = sound;
     }
 
     void Update()
@@ -51,6 +56,10 @@ public class TextSystem : MonoBehaviour
         if (!gameObject.activeSelf)
             return;
         _timer += Time.deltaTime;
+        
+        if (_index == 0 && _stringIndex == 0 && !_audioSource.isPlaying) {
+            _audioSource.Play();
+        }
         
         if (textToDisplay.Length < textList[_index].Length && _timer > timeToWait) {
             _stringIndex += textSpeed * _acceleration;
